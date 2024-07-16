@@ -1,0 +1,44 @@
+---
+interface Props {
+  class?: string;
+  img?: boolean;
+  text?: boolean;
+}
+
+const { class: className, img, text } = Astro.props;
+---
+
+<div class="logo flex items-center gap-2 select-none" class:list={[className]}>
+  <img
+    class:list={[{ hidden: !img }]}
+    class="w-8 h-8"
+    src="/repollo.svg"
+    alt="logo de un repollo colorido y tierno"
+  />
+  <p class:list={[{ hidden: text === false }]}>
+    <span>R</span>epollo<span class="flicker">D</span>ev
+  </p>
+</div>
+
+<style>
+  p {
+    @apply font-geist-mono;
+  }
+  p > span {
+    @apply font-major;
+  }
+
+  .flicker {
+    animation: flicker 1.5s infinite;
+  }
+
+  @keyframes flicker {
+    0%,
+    100% {
+      @apply lowercase;
+    }
+    50% {
+      @apply uppercase;
+    }
+  }
+</style>

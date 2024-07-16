@@ -1,0 +1,114 @@
+---
+interface Props {
+  id: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+---
+
+<span class="hamburguer-btn relative" class:list={[className]}>
+  <input id={id} type="checkbox" class="btn-checkbox" />
+  <label for={id} class="btn-container">
+    <span class="bread top"></span>
+    <span class="dressings middle"></span>
+    <span class="meat"></span>
+    <span class="salad middle"></span>
+    <span class="bread bottom"></span>
+  </label>
+  <span
+    class="blocker absolute w-full h-full hidden lg:block top-0 left-0 z-10"
+  >
+  </span>
+</span>
+
+<style>
+  /* Hamburger component */
+  .bread {
+    background: #fe9a3e;
+  }
+
+  .meat {
+    background: #9e5528;
+  }
+
+  .salad {
+    background: #bbec6c;
+  }
+
+  .dressings {
+    background: rgb(233, 68, 68);
+    background: linear-gradient(
+      90deg,
+      rgba(233, 68, 68, 1) 37%,
+      rgba(255, 231, 91, 1) 37%,
+      rgba(255, 231, 91, 1) 70%,
+      rgba(255, 243, 194, 1) 70%
+    );
+  }
+
+  .hamburguer-btn {
+    .btn-checkbox {
+      display: none;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 2rem;
+      height: 1.6rem;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+
+      .middle {
+        width: 1.2rem;
+        height: 0.25rem;
+        transition:
+          width 0.1s ease-in-out,
+          opacity 0.2s ease-in-out;
+      }
+
+      span:not(.middle) {
+        width: 1.5rem;
+        height: 0.3rem;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+    :hover {
+      span:not(.middle) {
+        height: 0.2rem !important;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .hamburguer-btn > .btn-checkbox:checked + .btn-container {
+      > .middle {
+        opacity: 0 !important;
+      }
+
+      > .meat {
+        width: 0;
+      }
+
+      > .top {
+        position: absolute;
+        transform: rotate(-45deg);
+      }
+
+      > .bottom {
+        position: absolute;
+        transform: rotate(-135deg);
+      }
+
+      > .bread {
+        border-radius: 0;
+        height: 0.25rem !important;
+      }
+    }
+  }
+</style>

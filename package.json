@@ -1,5 +1,5 @@
 {
-  "name": "my-web-site",
+  "name": "portfolio-repollodev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,12 +15,18 @@
     "@astrojs/mdx": "^3.1.2",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/geist-mono": "^5.0.3",
+    "@fontsource/geist-sans": "^5.0.3",
+    "@fontsource/major-mono-display": "^5.0.20",
     "astro": "^4.11.5",
     "astro-icon": "^1.1.0",
-    "tailwindcss": "^3.4.4",
+    "tailwindcss": "^3.4.5",
     "typescript": "^5.5.3"
   },
   "devDependencies": {
+    "@iconify-json/ph": "^1.1.13",
+    "@iconify/tailwind": "^1.1.1",
+    "daisyui": "^4.12.10",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0"
   }

@@ -1,0 +1,42 @@
+---
+import Logo from "./Logo.astro";
+
+const social = [
+  {
+    name: "twitter",
+    icon: "ph--x-logo-fill",
+    link: "https://x.com/RepolloDev/",
+  },
+  {
+    name: "youtube",
+    icon: "ph--youtube-logo-fill",
+    link: "https://www.youtube.com/@RepolloDev/",
+  },
+  {
+    name: "github",
+    icon: "ph--github-logo-fill",
+    link: "https://github.com/RepolloDev/",
+  },
+];
+---
+
+<footer
+  class="footer bg-neutral text-neutral-content dark:border-t-[1px] dark:border-neutral dark:bg-base-300 dark:text-base-content items-center p-4 mt-4"
+>
+  <aside class="grid-flow-col items-center gap-5">
+    <Logo img text={false} />
+    <p class="text-center">
+      Hecho con 🥬 por <a
+        class="font-bold"
+        href="https://github.com/repollodev/">@RepolloDev</a
+      >
+    </p>
+  </aside>
+  <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    {
+      social.map(({ link, icon }) => (
+        <a target="_blank" href={link} class={`iconify ${icon} w-6 h-6`} />
+      ))
+    }
+  </nav>
+</footer>
