@@ -7,7 +7,12 @@ interface Props {
 const { id, class: className } = Astro.props;
 ---
 
-<span role="button" class="hamburguer-btn relative" class:list={[className]}>
+<button
+  name="hamburguer button"
+  aria-label="hamburguer button"
+  class="hamburguer-btn relative align-middle"
+  class:list={[className]}
+>
   <input id={id} type="checkbox" class="btn-checkbox" />
   <label for={id} class="btn-container">
     <span class="bread top"></span>
@@ -16,7 +21,7 @@ const { id, class: className } = Astro.props;
     <span class="salad middle"></span>
     <span class="bread bottom"></span>
   </label>
-</span>
+</button>
 
 <style>
   /* Hamburger component */

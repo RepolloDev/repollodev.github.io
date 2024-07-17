@@ -21,7 +21,7 @@ const social = [
 ---
 
 <footer
-  class="footer bg-neutral text-neutral-content dark:border-t-[1px] dark:border-neutral dark:bg-base-300 dark:text-base-content items-center p-4 mt-4"
+  class="footer grid-flow-col bg-neutral text-neutral-content dark:border-t-[1px] dark:border-neutral dark:bg-base-300 dark:text-base-content items-center p-4 mt-4"
 >
   <aside class="grid-flow-col items-center gap-5">
     <Logo img text={false} />
@@ -32,13 +32,13 @@ const social = [
       >
     </p>
   </aside>
-  <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+  <nav class="grid-flow-col sm:gap-4 place-self-center justify-self-end">
     {
       social.map(({ link, icon, name }) => (
         <a
           target="_blank"
           href={link}
-          class={`iconify ${icon} btn btn-sm dark:btn-neutral`}
+          class={`iconify ${icon} btn btn-xs sm:btn-sm dark:btn-neutral`}
         >
           <span class="sr-only">{name}</span>
         </a>

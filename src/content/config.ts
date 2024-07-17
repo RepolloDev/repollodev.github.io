@@ -20,7 +20,3 @@ export const projects = defineCollection({
     date: z.date().optional(),
   }),
 });
-
-export const sections = defineCollection({
-  type: "content",
-});

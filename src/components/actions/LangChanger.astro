@@ -7,15 +7,11 @@ const currentLang = languages[lang];
 const url = Astro.url.pathname.replace(`/${lang}/`, "");
 ---
 
-<span
-  id="lang-changer"
-  aria-label="Change language"
-  class="lang-changer dropdown dropdown-end"
->
+<span id="lang-changer" class="lang-changer dropdown dropdown-end">
   <button
     id="lang-button"
     class="lang-button btn btn-xs max-md:btn-square md:btn-sm btn-outline flex-nowrap align-middle"
-    role="button"
+    aria-label="Change language"
     tabindex="0"
   >
     <span class="iconify ph--translate-duotone w-4 h-4"></span>
@@ -25,6 +21,7 @@ const url = Astro.url.pathname.replace(`/${lang}/`, "");
   </button>
   <span id="lang-options" class="lang-options dropdown-content top-10">
     <menu
+      aria-label="Language options"
       tabindex="0"
       class="menu menu-sm bg-base-100 z-10 w-32 border-[1px] border-neutral"
     >
@@ -35,7 +32,7 @@ const url = Astro.url.pathname.replace(`/${lang}/`, "");
           const newUrl = lang === key ? "#" : `/${key}/${url}`;
           return (
             <li>
-              <a class="" href={newUrl}>
+              <a href={newUrl} aria-label={`${value} option`}>
                 <code
                   class="px-1 outline outline-1 text-content font-geist-mono"
                   class:list={[activeLang]}

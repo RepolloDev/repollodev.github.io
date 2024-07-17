@@ -1,20 +1,15 @@
 ---
 import MyPhoto from "@/assets/images/me-avatar.webp";
 import { Image } from "astro:assets";
-
-import { getEntry } from "astro:content";
-
+import { Language } from "@/i18n/lang";
+import { useTranslations } from "@/i18n/utils";
 interface Props {
-  lang: string;
+  lang: Language;
 }
 
 const { lang } = Astro.props;
-const contentLang = await getEntry("sections", `${lang}/hero`);
-if (!contentLang) {
-  throw new Error(`No content found for lang: ${lang}`);
-}
-
-const { Content } = await contentLang.render();
+const t = useTranslations(lang);
+const content = t("hero") as Record<string, string>;
 ---
 
 <section class="hero-section hero w-full min-h-[70vh]">
@@ -24,6 +19,33 @@ const { Content } = await contentLang.render();
         <Image src={MyPhoto} alt="RepolloDev image" />
       </div>
     </div>
-    <Content />
+    <div class="content min-w-[50%]">
+      <h1 class="flex flex-col font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+        <span class="text-base font-normal">
+          {content.greeting}
+        </span>
+        <span>
+          {content.title}
+        </span>
+      </h1>
+      <p class="resume sm:text-lg lg:text-xl" set:html={content.description} />
+      <nav class="mt-8 flex gap-4">
+        <a
+          href="mailto:miduga@gmail.com"
+          class="btn max-sm:btn-sm btn-neutral text-base"
+        >
+          <i class="iconify ph--mailbox-duotone w-6 h-6 inline-block"></i>
+          <span set:html={content["btn.contact"]} />
+        </a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/repollodev/"
+          class="btn max-sm:btn-sm btn-info text-white text-base"
+        >
+          <i class="iconify ph--linkedin-logo-duotone w-6 h-6 inline-block"></i>
+          <span>LinkedIn</span>
+        </a>
+      </nav>
+    </div>
   </div>
 </section>

@@ -10,9 +10,5 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [
-    mdx(),
-    sitemap(),
-    tailwind(),
-  ],
+  integrations: [mdx(), sitemap(), tailwind()],
 });

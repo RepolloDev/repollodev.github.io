@@ -6,7 +6,7 @@ import { languages, type Language } from "@/i18n/lang";
 import { useTranslations } from "@/i18n/utils";
 
 export const getStaticPaths = (() => {
-  return Object.keys(languages).map((lang) => ({
+  return Object.keys(languages).map((lang: Language) => ({
     params: { lang },
   }));
 }) satisfies GetStaticPaths;
@@ -17,6 +17,6 @@ const homeTitle = t("home.title") as string;
 const homeDescription = t("home.description") as string;
 ---
 
-<Layout title={homeTitle} description={homeDescription}>
+<Layout title={homeTitle} description={homeDescription} lang={lang}>
   <Hero lang={lang} />
 </Layout>
