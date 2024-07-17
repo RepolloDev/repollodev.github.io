@@ -2,10 +2,16 @@
 
 ---
 
-<label class="swap swap-rotate theme-changer h-full align-top">
+<label
+  id="theme-changer"
+  for="theme-controller"
+  class="swap swap-rotate theme-changer h-full relative max-md:top-1 md:align-middle"
+  role="button"
+  aria-label="Toggle theme"
+>
   <input id="theme-controller" type="checkbox" class="theme-controller" />
-  <span class="iconify ph--sun-duotone w-6 h-6 swap-off"></span>
-  <span class="iconify ph--moon-stars-duotone w-6 h-6 swap-on"></span>
+  <i class="iconify ph--sun-duotone w-5 h-5 md:w-6 md:h-6 swap-off"></i>
+  <i class="iconify ph--moon-stars-duotone w-5 h-5 md:w-6 md:h-6 swap-on"></i>
 </label>
 
 <script is:inline>

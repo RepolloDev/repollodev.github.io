@@ -10,9 +10,14 @@ export default defineConfig({
   site: "https://repollodev.github.io",
   output: "static",
   devToolbar: {
-    enabled: false
+    enabled: false,
   },
-  integrations: [mdx(), sitemap(), icon({
-    iconDir: "src/assets/icons"
-  }), tailwind()]
+  integrations: [
+    mdx(),
+    sitemap(),
+    icon({
+      iconDir: "src/assets/icons",
+    }),
+    tailwind(),
+  ],
 });

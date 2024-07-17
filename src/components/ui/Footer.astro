@@ -34,8 +34,14 @@ const social = [
   </aside>
   <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
     {
-      social.map(({ link, icon }) => (
-        <a target="_blank" href={link} class={`iconify ${icon} w-6 h-6`} />
+      social.map(({ link, icon, name }) => (
+        <a
+          target="_blank"
+          href={link}
+          class={`iconify ${icon} btn btn-sm dark:btn-neutral`}
+        >
+          <span class="sr-only">{name}</span>
+        </a>
       ))
     }
   </nav>

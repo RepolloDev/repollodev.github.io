@@ -1,0 +1,29 @@
+<div class="content min-w-[50%]">
+  <h1 class="flex flex-col font-bold text-3xl md:text-4xl lg:text-5xl mb-4">
+    <span class="text-base font-normal">
+      <slot name="greeting" />
+    </span>
+    <span>
+      <slot name="title" />
+    </span>
+  </h1>
+  <p class="resume text-lg lg:text-xl">
+    <slot name="description" />
+  </p>
+  <nav class="mt-8 flex gap-4">
+    <a href="mailto:miduga@gmail.com" class="btn btn-neutral text-base">
+      <i class="iconify ph--mailbox-duotone w-6 h-6 inline-block"></i>
+      <span>
+        <slot name="contact-text" />
+      </span>
+    </a>
+    <a
+      target="_blank"
+      href="https://www.linkedin.com/in/repollodev/"
+      class="btn btn-info text-white text-base"
+    >
+      <i class="iconify ph--linkedin-logo-duotone w-6 h-6 inline-block"></i>
+      <span>LinkedIn</span>
+    </a>
+  </nav>
+</div>

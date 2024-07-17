@@ -1,3 +1,29 @@
-<section class="hero-section">
-  <slot />
+---
+import MyPhoto from "@/assets/images/me-avatar.png";
+import { Image } from "astro:assets";
+
+import { getEntry } from "astro:content";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const contentLang = await getEntry("sections", `${lang}/hero`);
+if (!contentLang) {
+  throw new Error(`No content found for lang: ${lang}`);
+}
+
+const { Content } = await contentLang.render();
+---
+
+<section class="hero-section hero w-full min-h-[70vh]">
+  <div class="hero-content p-0 flex-col md:flex-row-reverse">
+    <div class="avatar flex justify-center max-md:my-8">
+      <div class="w-[60%] sm:w-[40%] md:w-[80%] ring-neutral ring-4 rotate-3">
+        <Image src={MyPhoto} alt="RepolloDev image" />
+      </div>
+    </div>
+    <Content />
+  </div>
 </section>

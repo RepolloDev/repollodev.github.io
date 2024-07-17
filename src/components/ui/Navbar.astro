@@ -13,11 +13,9 @@ const options = t("nav") as Record<string, string>;
 <header
   class="navbar bg-base-100 flex-wrap md:flex-nowrap sticky top-0 border-b-[1px] border-neutral z-50 mb-4"
 >
-  <div>
-    <a href={`/${lang}/`}>
-      <Logo />
-    </a>
-  </div>
+  <a class="inline-block" href={`/${lang}/`}>
+    <Logo />
+  </a>
   <nav
     class="nav order-1 w-full overflow-hidden absolute top-16 left-0 transition-all shadow-lg lg:static lg:shadow-none lg:order-none"
   >
@@ -26,25 +24,25 @@ const options = t("nav") as Record<string, string>;
     >
       <li>
         <a class="nav-link" href="#experience">
-          <span class="iconify ph--suitcase-duotone"></span>
+          <i class="iconify ph--suitcase-duotone"></i>
           <span>{options.experience}</span>
         </a>
       </li>
       <li>
         <a class="nav-link" href="#projects">
-          <span class="iconify ph--rocket-launch-duotone"></span>
+          <i class="iconify ph--rocket-launch-duotone"></i>
           <span>{options.projects}</span>
         </a>
       </li>
       <li>
         <a class="nav-link" href="#about">
-          <span class="iconify ph--user-check-duotone"></span>
+          <i class="iconify ph--user-check-duotone"></i>
           <span>{options.about}</span>
         </a>
       </li>
       <li>
         <a class="nav-link" href="mailto:miduga@gmail.com">
-          <span class="iconify ph--mailbox-duotone"></span>
+          <i class="iconify ph--mailbox-duotone"></i>
           <span>{options.contact}</span>
         </a>
       </li>
@@ -67,7 +65,7 @@ const options = t("nav") as Record<string, string>;
 
 <script>
   const navController = document.getElementById(
-    "nav-button"
+    "nav-button",
   ) as HTMLInputElement;
   const nav = document.querySelector(".navbar .nav") as HTMLElement;
 

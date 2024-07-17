@@ -7,7 +7,7 @@ interface Props {
 const { id, class: className } = Astro.props;
 ---
 
-<span class="hamburguer-btn relative" class:list={[className]}>
+<span role="button" class="hamburguer-btn relative" class:list={[className]}>
   <input id={id} type="checkbox" class="btn-checkbox" />
   <label for={id} class="btn-container">
     <span class="bread top"></span>
@@ -16,10 +16,6 @@ const { id, class: className } = Astro.props;
     <span class="salad middle"></span>
     <span class="bread bottom"></span>
   </label>
-  <span
-    class="blocker absolute w-full h-full hidden lg:block top-0 left-0 z-10"
-  >
-  </span>
 </span>
 
 <style>
@@ -59,7 +55,7 @@ const { id, class: className } = Astro.props;
       justify-content: center;
       position: relative;
       width: 2rem;
-      height: 1.6rem;
+      height: 1.5rem;
       position: relative;
       cursor: pointer;
       overflow: hidden;

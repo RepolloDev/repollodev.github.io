@@ -7,9 +7,14 @@ const currentLang = languages[lang];
 const url = Astro.url.pathname.replace(`/${lang}/`, "");
 ---
 
-<span class="lang-changer dropdown dropdown-end">
-  <span
-    class="lang-button btn btn-xs max-md:btn-square md:btn-sm btn-outline flex-nowrap"
+<span
+  id="lang-changer"
+  aria-label="Change language"
+  class="lang-changer dropdown dropdown-end"
+>
+  <button
+    id="lang-button"
+    class="lang-button btn btn-xs max-md:btn-square md:btn-sm btn-outline flex-nowrap align-middle"
     role="button"
     tabindex="0"
   >
@@ -17,15 +22,16 @@ const url = Astro.url.pathname.replace(`/${lang}/`, "");
     <span class="capitalize lg:min-w-20 hidden md:inline-block font-normal"
       >{currentLang}</span
     >
-  </span>
-  <span class="options-container dropdown-content top-10">
-    <ul
+  </button>
+  <span id="lang-options" class="lang-options dropdown-content top-10">
+    <menu
       tabindex="0"
       class="menu menu-sm bg-base-100 z-10 w-32 border-[1px] border-neutral"
     >
       {
         Object.entries(languages).map(([key, value]) => {
-          const activeLang = key === lang ? "bg-neutral text-neutral-content" : "";
+          const activeLang =
+            key === lang ? "bg-neutral text-neutral-content" : "";
           const newUrl = lang === key ? "#" : `/${key}/${url}`;
           return (
             <li>
@@ -42,6 +48,6 @@ const url = Astro.url.pathname.replace(`/${lang}/`, "");
           );
         })
       }
-    </ul>
+    </menu>
   </span>
 </span>

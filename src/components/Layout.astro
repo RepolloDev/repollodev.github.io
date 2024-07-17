@@ -46,9 +46,18 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     @apply font-geist-sans;
   }
 
+  main {
+    @apply min-h-screen;
+  }
+
   header,
   footer,
   section {
-    @apply px-8 md:px-16 lg:px-24 xl:px-60 2xl:px-80 !important;
+    @apply px-8 sm:px-16 md:px-12 lg:px-24 xl:px-60 2xl:px-80 !important;
+  }
+
+  strong,
+  b {
+    @apply font-geist-mono font-bold text-accent;
   }
 </style>
