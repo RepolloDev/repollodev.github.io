@@ -6,8 +6,8 @@ import { languages, type Language } from "@/i18n/lang";
 import { useTranslations } from "@/i18n/utils";
 
 export const getStaticPaths = (() => {
-  return Object.keys(languages).map((lang: Language) => ({
-    params: { lang },
+  return Object.keys(languages).map((lang) => ({
+    params: { lang: lang as Language },
   }));
 }) satisfies GetStaticPaths;
 
