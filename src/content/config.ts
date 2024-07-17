@@ -1,4 +1,4 @@
-import { defineCollection, z, reference } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 export const techs = defineCollection({
   type: "data",
